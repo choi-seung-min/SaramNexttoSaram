@@ -1,13 +1,16 @@
 package com.example.saramnexttosaram
 
-import androidx.databinding.ObservableField
+import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
-    val ID = ObservableField<String>()
-    val password = ObservableField<String>()
 
-    fun login(){
-        //TODO call api for login with id, password
+    val ID = MutableLiveData<String>()
+    val password = MutableLiveData<String>()
+
+    fun login(view: View){
+        Toast.makeText(view.context, "ID: ${ID.value}\nPassword: ${password.value}", Toast.LENGTH_LONG).show()
     }
 }
