@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.example.saramnexttosaram.JoinViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,7 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="150dp"
-            android:hint="Name"/>
+            android:hint="Name"
+            android:text="@={viewModel.name}"/>
 
         <EditText
             android:id="@+id/et_join_id"
@@ -25,7 +34,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
-            android:hint="ID"/>
+            android:hint="ID"
+            android:text="@={viewModel.id}"/>
 
         <EditText
             android:id="@+id/et_join_password"
@@ -35,7 +45,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
-            android:hint="Password"/>
+            android:hint="Password"
+            android:text="@={viewModel.password}"/>
 
         <EditText
             android:id="@+id/et_join_password_check"
@@ -45,7 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
-            android:hint="Password check"/>
+            android:hint="Password check" />
 
         <Button
             android:id="@+id/btn_join_join"
@@ -57,7 +68,8 @@
             android:layout_marginTop="20dp"
             android:fontFamily="casual"
             android:text="JOIN"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:onClick="@{(view) -> viewModel.join(view)}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
