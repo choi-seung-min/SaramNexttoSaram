@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.saramnexttosaram.LoginViewModel"/>
+            type="com.example.saramnexttosaram.login.LoginViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ID"
-            android:text="@={viewModel.iD}"/>
+            android:text="@={viewModel.id}"/>
 
         <EditText
             android:id="@+id/et_login_pw"
@@ -72,7 +72,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="JOIN"
             android:fontFamily="casual"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:onClick="@{() -> viewModel.joinActivity()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

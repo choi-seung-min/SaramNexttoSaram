@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.saramnexttosaram.JoinViewModel" />
+            type="com.example.saramnexttosaram.join.JoinViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +56,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
-            android:hint="Password check" />
+            android:hint="Password check"
+            android:text="@={viewModel.passwordCheck}"/>
 
         <Button
             android:id="@+id/btn_join_join"
