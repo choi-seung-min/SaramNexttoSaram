@@ -73,7 +73,7 @@
             android:text="JOIN"
             android:fontFamily="casual"
             android:textSize="25dp"
-            android:onClick="@{() -> viewModel.joinActivity()}"/>
+            android:onClick="@{() -> viewModel.startJoinActivity()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
