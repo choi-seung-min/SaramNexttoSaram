@@ -2,30 +2,27 @@ package com.example.saramnexttosaram.login
 
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.saramnexttosaram.CallJoinActivity
-import com.example.saramnexttosaram.CallMainActivity
+import com.example.saramnexttosaram.util.SingleLiveEvent
 
-class LoginViewModel(private val callJoinActivity: CallJoinActivity,
-                     private val callMainActivity: CallMainActivity) : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     val id = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
-    fun login(view: View){
-        if(id.value == "sample" || password.value == "sample"){
-            startMainActivity()
+    private val _loginSuccessEvent = SingleLiveEvent<Any>()
+    private val _loginFailEvent = SingleLiveEvent<Any>()
+
+    val loginSuccessEvent : LiveData<Any> get() = _loginSuccessEvent
+    val loginFailEvent : LiveData<Any> get() = _loginFailEvent
+
+    fun login(){
+        if(id.value == "sample" && password.value == "sample"){
+            _loginSuccessEvent.call()
         } else{
-            Toast.makeText(view.context, "Wrong id or password", Toast.LENGTH_LONG).show()
+            _loginFailEvent.call()
         }
-    }
-
-    fun startJoinActivity(){
-        callJoinActivity.startJoinActivity()
-    }
-
-    fun startMainActivity(){
-        callMainActivity.startMainActivity()
     }
 }

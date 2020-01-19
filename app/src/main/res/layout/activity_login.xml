@@ -61,7 +61,7 @@
             android:text="Login"
             android:fontFamily="casual"
             android:textSize="30dp"
-            android:onClick="@{(view) -> viewModel.login(view)}"/>
+            android:onClick="@{(view) -> viewModel.login()}"/>
 
         <TextView
             android:id="@+id/tv_login_join"
@@ -72,8 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="JOIN"
             android:fontFamily="casual"
-            android:textSize="25dp"
-            android:onClick="@{() -> viewModel.startJoinActivity()}"/>
+            android:textSize="25dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
