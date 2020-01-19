@@ -6,9 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import com.example.saramnexttosaram.CallJoinActivity
-import com.example.saramnexttosaram.CallMainActivity
-import com.example.saramnexttosaram.join.JoinActivity
 import com.example.saramnexttosaram.R
 import com.example.saramnexttosaram.databinding.ActivityLoginBinding
 import com.example.saramnexttosaram.main.MainActivity
