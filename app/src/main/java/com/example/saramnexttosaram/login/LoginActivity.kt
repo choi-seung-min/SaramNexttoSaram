@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.saramnexttosaram.R
 import com.example.saramnexttosaram.databinding.ActivityLoginBinding
+import com.example.saramnexttosaram.join.JoinActivity
 import com.example.saramnexttosaram.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         val viewModel = LoginViewModel()
         viewModel.loginSuccessEvent.observe(this, Observer { startActivity(Intent(this, MainActivity::class.java)) })
         viewModel.loginFailEvent.observe(this, Observer { Toast.makeText(this, "wrong id or password", Toast.LENGTH_LONG).show() })
+        viewModel.startJoinEvent.observe(this, Observer { startActivity(Intent(this, JoinActivity::class.java)) })
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
     }

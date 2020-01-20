@@ -14,9 +14,11 @@ class LoginViewModel : ViewModel() {
 
     private val _loginSuccessEvent = SingleLiveEvent<Any>()
     private val _loginFailEvent = SingleLiveEvent<Any>()
+    private val _startJoinEvent = SingleLiveEvent<Any>()
 
     val loginSuccessEvent : LiveData<Any> get() = _loginSuccessEvent
     val loginFailEvent : LiveData<Any> get() = _loginFailEvent
+    val startJoinEvent : LiveData<Any> get() = _startJoinEvent
 
     fun login(){
         if(id.value == "sample" && password.value == "sample"){
@@ -24,5 +26,9 @@ class LoginViewModel : ViewModel() {
         } else{
             _loginFailEvent.call()
         }
+    }
+
+    fun startJoinActivity(){
+        _startJoinEvent.call()
     }
 }

@@ -72,7 +72,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="JOIN"
             android:fontFamily="casual"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:onClick="@{() -> viewModel.startJoinActivity()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
