@@ -70,7 +70,7 @@
             android:fontFamily="casual"
             android:text="JOIN"
             android:textSize="30dp"
-            android:onClick="@{(view) -> viewModel.join(view)}"/>
+            android:onClick="@{() -> viewModel.join()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

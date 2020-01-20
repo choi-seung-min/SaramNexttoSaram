@@ -2,8 +2,10 @@ package com.example.saramnexttosaram.join
 
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.saramnexttosaram.util.SingleLiveEvent
 
 class JoinViewModel : ViewModel() {
     val name = MutableLiveData<String>()
@@ -11,15 +13,17 @@ class JoinViewModel : ViewModel() {
     val password = MutableLiveData<String>()
     val passwordCheck = MutableLiveData<String>()
 
-    fun join(view: View) {
+    private val _joinSuccessEvent = SingleLiveEvent<Any>()
+    private val _joinFailEvent = SingleLiveEvent<Any>()
+
+    val joinSuccessEvent : LiveData<Any> get() = _joinSuccessEvent
+    val joinFailEvent : LiveData<Any> get() = _joinFailEvent
+
+    fun join() {
         if (password.value == passwordCheck.value) {
-            Toast.makeText(
-                view.context,
-                "Name: ${name.value}\nID: ${id.value}\n Password: ${password.value}\nPassword Check: ${passwordCheck.value}",
-                Toast.LENGTH_LONG
-            ).show()
+            _joinSuccessEvent.call()
         } else {
-            Toast.makeText(view.context, "password check is not correct", Toast.LENGTH_LONG).show()
+            _joinFailEvent.call()
         }
     }
 }
