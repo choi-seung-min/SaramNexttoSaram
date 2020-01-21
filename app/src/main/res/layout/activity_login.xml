@@ -36,6 +36,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
             android:hint="ID"
             android:text="@={viewModel.id}"/>
 
@@ -47,6 +49,8 @@
             app:layout_constraintTop_toBottomOf="@id/et_login_id"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:hint="Password"
             android:text="@={viewModel.password}"/>
 
