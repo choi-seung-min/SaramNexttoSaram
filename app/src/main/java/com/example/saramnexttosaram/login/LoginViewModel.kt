@@ -1,13 +1,11 @@
 package com.example.saramnexttosaram.login
 
-import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.saramnexttosaram.util.SingleLiveEvent
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
     val id = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -21,7 +19,7 @@ class LoginViewModel : ViewModel() {
     val startJoinEvent : LiveData<Any> get() = _startJoinEvent
 
     fun login(){
-        if(id.value == "sample" && password.value == "sample"){
+        if (loginRepository.login(id.value, password.value) == 200){
             _loginSuccessEvent.call()
         } else{
             _loginFailEvent.call()

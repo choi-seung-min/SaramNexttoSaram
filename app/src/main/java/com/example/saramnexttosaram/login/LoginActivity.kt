@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityLoginBinding>(this,
             R.layout.activity_login
         )
-        val viewModel = LoginViewModel()
+        val viewModel = LoginViewModel(LoginRepository())
         viewModel.loginSuccessEvent.observe(this, Observer { startActivity(Intent(this, MainActivity::class.java)) })
         viewModel.loginFailEvent.observe(this, Observer { Toast.makeText(this, "wrong id or password", Toast.LENGTH_LONG).show() })
         viewModel.startJoinEvent.observe(this, Observer { startActivity(Intent(this, JoinActivity::class.java)) })
