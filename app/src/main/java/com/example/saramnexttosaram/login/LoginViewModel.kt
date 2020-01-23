@@ -19,10 +19,9 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     val startJoinEvent : LiveData<Any> get() = _startJoinEvent
 
     fun login(){
-        if (loginRepository.login(id.value, password.value) == 200){
-            _loginSuccessEvent.call()
-        } else{
-            _loginFailEvent.call()
+        when(loginRepository.login(id.value, password.value)){
+            200 -> _loginSuccessEvent.call()
+            404 -> _loginFailEvent.call()
         }
     }
 
