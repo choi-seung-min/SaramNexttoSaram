@@ -14,7 +14,7 @@ class JoinActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityJoinBinding>(this,
             R.layout.activity_join
         )
-        val viewModel = JoinViewModel()
+        val viewModel = JoinViewModel(JoinRepository())
         viewModel.joinSuccessEvent.observe(this, Observer { Toast.makeText(this, "join success", Toast.LENGTH_LONG).show() })
         viewModel.joinFailEvent.observe(this, Observer { Toast.makeText(this, "password check is not correct", Toast.LENGTH_LONG).show() })
         binding.viewModel = viewModel
