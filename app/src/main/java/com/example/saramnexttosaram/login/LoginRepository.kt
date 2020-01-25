@@ -6,6 +6,7 @@ class LoginRepository {
             200
         } else{
             404
+            //TODO user retrofit and return response.body(or code)
         }
     }
 }

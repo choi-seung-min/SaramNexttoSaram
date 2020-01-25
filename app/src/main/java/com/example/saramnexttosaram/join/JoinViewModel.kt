@@ -24,6 +24,7 @@ class JoinViewModel(private val joinRepository: JoinRepository): ViewModel() {
                 404 -> _joinFailEvent.call()
                 //TODO check addDisposable in dohoon's repository
             }
+            //TODO finish activity after call success event
         } else {
             _joinFailEvent.call()
             //TODO divide event to jin fail and check password fail
