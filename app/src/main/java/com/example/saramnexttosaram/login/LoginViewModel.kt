@@ -23,6 +23,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
             200 -> _loginSuccessEvent.call()
             404 -> _loginFailEvent.call()
         }
+
     }
 
     fun startJoinActivity(){
