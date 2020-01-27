@@ -15,7 +15,10 @@ class JoinActivity : AppCompatActivity() {
             R.layout.activity_join
         )
         val viewModel = JoinViewModel(JoinRepository())
-        viewModel.joinSuccessEvent.observe(this, Observer { Toast.makeText(this, "join success", Toast.LENGTH_LONG).show() })
+        viewModel.joinSuccessEvent.observe(this, Observer {
+            Toast.makeText(this, "join success", Toast.LENGTH_LONG).show()
+            finish()
+        })
         viewModel.joinFailEvent.observe(this, Observer { Toast.makeText(this, "password check is not correct", Toast.LENGTH_LONG).show() })
         binding.viewModel = viewModel
         binding.lifecycleOwner = this

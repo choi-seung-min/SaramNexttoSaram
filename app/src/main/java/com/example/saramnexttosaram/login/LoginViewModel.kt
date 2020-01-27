@@ -3,9 +3,10 @@ package com.example.saramnexttosaram.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.saramnexttosaram.base.BaseViewModel
 import com.example.saramnexttosaram.util.SingleLiveEvent
 
-class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewModel() {
 
     val id = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -23,7 +24,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
             200 -> _loginSuccessEvent.call()
             404 -> _loginFailEvent.call()
         }
-
+        //TODO divide repository and useCase and use addDisposable
     }
 
     fun startJoinActivity(){
