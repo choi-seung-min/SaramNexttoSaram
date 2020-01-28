@@ -13,9 +13,11 @@ class JoinViewModel(private val joinRepository: JoinRepository): ViewModel() {
 
     private val _joinSuccessEvent = SingleLiveEvent<Any>()
     private val _joinFailEvent = SingleLiveEvent<Any>()
+    private val _passwordCheckFailEvent = SingleLiveEvent<Any>()
 
     val joinSuccessEvent : LiveData<Any> get() = _joinSuccessEvent
     val joinFailEvent : LiveData<Any> get() = _joinFailEvent
+    val passwordCheckFailEvent : LiveData<Any> get() = _passwordCheckFailEvent
 
     fun join() {
         if (password.value == passwordCheck.value) {
@@ -25,8 +27,7 @@ class JoinViewModel(private val joinRepository: JoinRepository): ViewModel() {
                 //TODO check addDisposable in dohoon's repository
             }
         } else {
-            _joinFailEvent.call()
-            //TODO divide event to join fail and check password fail
+            _passwordCheckFailEvent.call()
         }
     }
 }
