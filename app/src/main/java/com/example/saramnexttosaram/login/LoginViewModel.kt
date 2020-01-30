@@ -21,7 +21,11 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
 
     fun login(){
         when(loginRepository.login(id.value, password.value)){
-            200 -> _loginSuccessEvent.call()
+            200 -> {
+                //TODO save user data through this
+                loginRepository.get()
+                _loginSuccessEvent.call()
+            }
             404 -> _loginFailEvent.call()
         }
         //TODO divide repository and useCase and use addDisposable
