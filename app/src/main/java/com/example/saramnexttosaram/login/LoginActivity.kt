@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         val viewModel = LoginViewModel(LoginRepository())
         viewModel.loginSuccessEvent.observe(this, Observer { startActivity(Intent(this, MainActivity::class.java)) })
         viewModel.loginFailEvent.observe(this, Observer { Toast.makeText(this, "wrong id or password", Toast.LENGTH_LONG).show() })
-        viewModel.startJoinEvent.observe(this, Observer { startActivity(Intent(this, JoinActivity::class.java)) })
+        viewModel.startJoinEvent.observe(this, Observer { startActivity(Intent(this, MainActivity::class.java)) })
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
     }

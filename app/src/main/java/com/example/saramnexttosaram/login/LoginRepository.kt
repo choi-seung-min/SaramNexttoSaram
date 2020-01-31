@@ -3,6 +3,7 @@ package com.example.saramnexttosaram.login
 import com.example.saramnexttosaram.LoginInfo
 
 class LoginRepository {
+
     fun login(id: String?, password: String?): Int{
         return if(id == "sample" && password == "sample"){
             200
