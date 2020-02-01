@@ -7,8 +7,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.saramnexttosaram.R
 import com.example.saramnexttosaram.databinding.ActivityMainBinding
+import com.example.saramnexttosaram.util.BackPressHandler
 
 class MainActivity : AppCompatActivity() {
+
+    private val backPressHandler = BackPressHandler(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,5 +23,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.getInfoFailEvent.observe(this, Observer { Toast.makeText(this, "get list failed", Toast.LENGTH_LONG).show() })
 
         viewModel.onStarted()
+    }
+
+    override fun onBackPressed() {
+        backPressHandler.onBackPressed()
     }
 }
